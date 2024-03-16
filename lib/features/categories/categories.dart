@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../adhkar/adhkar.dart';
+
 class Categories extends StatelessWidget {
   const Categories({super.key});
 
@@ -11,8 +13,10 @@ class Categories extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("الأذكار",
-            style:
-                GoogleFonts.amiri(fontWeight: FontWeight.bold, fontSize: 25)),
+            style: GoogleFonts.amiri(
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+                color: Colors.white)),
         backgroundColor: Colors.brown[800],
         centerTitle: true,
       ),
@@ -30,17 +34,28 @@ class Categories extends StatelessWidget {
                     crossAxisSpacing: 10,
                     crossAxisCount: 2,
                     children: state.categories
-                        .map((e) => Card(
-                                child: Center(
-                                    child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Text(
-                                e,
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.amiri(
-                                    fontSize: 20, fontWeight: FontWeight.bold),
-                              ),
-                            ))))
+                        .map((e) => GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          Adhkar(category: e)),
+                                );
+                              },
+                              child: Card(
+                                  child: Center(
+                                      child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Text(
+                                  e,
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.amiri(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ))),
+                            ))
                         .toList(),
                   ),
                 CategoriesError() => Text(state.message),

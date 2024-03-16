@@ -14,8 +14,10 @@ class _SebhaState extends State<Sebha> {
     return Scaffold(
       appBar: AppBar(
         title: Text("السبحة",
-            style:
-                GoogleFonts.amiri(fontWeight: FontWeight.bold, fontSize: 25)),
+            style: GoogleFonts.amiri(
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+                color: Colors.white)),
         backgroundColor: Colors.brown[800],
         centerTitle: true,
       ),

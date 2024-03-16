@@ -9,8 +9,10 @@ class Favorites extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("المفضلة",
-            style:
-                GoogleFonts.amiri(fontWeight: FontWeight.bold, fontSize: 25)),
+            style: GoogleFonts.amiri(
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+                color: Colors.white)),
         backgroundColor: Colors.brown[800],
         centerTitle: true,
       ),
